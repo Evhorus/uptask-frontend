@@ -33,7 +33,7 @@ export default function ProjectDetailsView() {
         {isManager(data.manager, user._id) && (
           <nav className="my-5 flex gap-3 overflow-x-scroll">
             <button
-              className="bg-purple-400 hover:bg-purple-500 px-2  sm:px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors"
+              className="w-full sm:w-auto bg-purple-400 hover:bg-purple-500 px-2  sm:px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors"
               type="button"
               onClick={() => navigate(location.pathname + "?newTask=true")}
             >
@@ -41,7 +41,7 @@ export default function ProjectDetailsView() {
             </button>
             <Link
               to={"team"}
-              className="bg-fuchsia-500 hover:bg-fuchsia-600 px-2  sm:px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors"
+              className="w-full sm:w-auto bg-fuchsia-500 hover:bg-fuchsia-600 px-2  sm:px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors"
             >
               Colaboradores
             </Link>

@@ -7,6 +7,7 @@ import TaskForm from "./TaskForm";
 import { TaskFormData } from "@/types/index";
 import { createTask } from "@/api/TaskAPI";
 import { toast } from "react-toastify";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 export default function AddTaskModal() {
   const navigate = useNavigate();
@@ -85,14 +86,23 @@ export default function AddTaskModal() {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-8 sm:p-16">
-                  <Dialog.Title as="h3" className="font-black text-4xl ">
+                  <button
+                    className="text-2xl text-slate-400 absolute top-5 right-5 cursor-pointer transition-colors hover:text-slate-600"
+                    onClick={() =>
+                      navigate(location.pathname, { replace: true })
+                    }
+                  >
+                    <IoCloseCircleOutline size={30} />
+                  </button>
+                  <Dialog.Title as="h3" className="font-black text-4xl">
                     Nueva Tarea
                   </Dialog.Title>
-
-                  <p className="text-xl font-bold">
-                    Llena el formulario y crea {""}
-                    <span className="text-fuchsia-600">una tarea</span>
-                  </p>
+                  <div className="flex gap-2 justify-between">
+                    <p className="text-xl font-bold">
+                      Llena el formulario y crea {""}
+                      <span className="text-fuchsia-600">una tarea</span>
+                    </p>
+                  </div>
                   <form
                     className="mt-10 space-y-3"
                     onSubmit={handleSubmit(handleCreateTask)}
