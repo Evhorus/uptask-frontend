@@ -8,6 +8,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import { checkPassword } from "@/api/AuthAPI";
 import { deleteProject } from "@/api/ProjectAPI";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 export default function DeleteProjectModal() {
   const queryClient = useQueryClient();
@@ -80,11 +81,16 @@ export default function DeleteProjectModal() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-16">
-                <Dialog.Title as="h3" className="font-black text-4xl  my-5">
+              <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-8 sm:p-16">
+                <Dialog.Title as="h3" className="font-black text-4xl">
                   Eliminar Proyecto{" "}
                 </Dialog.Title>
-
+                <button
+                  className="text-2xl text-slate-400 absolute top-5 right-5 cursor-pointer transition-colors hover:text-slate-600"
+                  onClick={() => navigate(location.pathname, { replace: true })}
+                >
+                  <IoCloseCircleOutline size={30} />
+                </button>
                 <p className="text-xl font-bold">
                   Confirma la eliminación del proyecto {""}
                   <span className="text-fuchsia-600">
