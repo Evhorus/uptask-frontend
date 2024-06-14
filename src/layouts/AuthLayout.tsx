@@ -12,7 +12,11 @@ export default function AuthLayout() {
           </div>
         </div>
       </div>
-      <ToastContainer pauseOnHover={false} pauseOnFocusLoss={false} />
+      <ToastContainer
+        pauseOnHover={false}
+        pauseOnFocusLoss={false}
+        autoClose={8000}
+      />
     </>
   );
 }
