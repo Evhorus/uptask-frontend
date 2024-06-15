@@ -5,13 +5,13 @@ import { useAuth } from "@/hooks/useAuth";
 import { Navigate, Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 export default function AuthLayout() {
-  const { data, isLoading, error } = useAuth();
+  const { data, isLoading, isError } = useAuth();
   if (isLoading) return <Spinner />;
 
   if (data) {
     return <Navigate to="/" />;
   }
-  if (error?.message === "No Autorizado")
+  if (isError)
     return (
       <>
         <div className="bg-gray-800 min-h-screen">
