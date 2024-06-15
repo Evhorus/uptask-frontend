@@ -1,10 +1,12 @@
 import Logo from "@/components/Logo";
+import Spinner from "@/components/Spinner";
+
 import { useAuth } from "@/hooks/useAuth";
 import { Navigate, Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 export default function AuthLayout() {
   const { data, isLoading, error } = useAuth();
-  if (isLoading) return "Cargando...";
+  if (isLoading) return <Spinner />;
 
   if (data) {
     return <Navigate to="/" />;

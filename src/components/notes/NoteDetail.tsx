@@ -6,6 +6,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import Spinner from "../Spinner";
 
 type NoteDetailProps = {
   note: Note;
@@ -35,7 +36,7 @@ export default function NoteDetail({ note }: NoteDetailProps) {
       queryClient.invalidateQueries({ queryKey: ["task", taskId] });
     },
   });
-  if (isLoading) return "Cargando....";
+  if (isLoading) return <Spinner />;
   return (
     <div className="p-3 flex justify-between items-center">
       <div>

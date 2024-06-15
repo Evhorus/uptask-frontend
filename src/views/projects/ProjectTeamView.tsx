@@ -6,6 +6,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/16/solid";
 import { Fragment } from "react/jsx-runtime";
 import { toast } from "react-toastify";
+import Spinner from "@/components/Spinner";
 export default function ProjectTeamView() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ export default function ProjectTeamView() {
       queryClient.invalidateQueries({ queryKey: ["projectTeam", projectId] });
     },
   });
-  if (isLoading) return "Cargando...";
+  if (isLoading) return <Spinner />;
   if (isError) return <Navigate to="/404" />;
   if (data)
     return (

@@ -7,6 +7,7 @@ import { getProjects } from "@/api/ProjectAPI";
 import { useAuth } from "@/hooks/useAuth";
 import { isManager } from "@/utils/policies";
 import DeleteProjectModal from "@/components/projects/DeleteProjectModal";
+import Spinner from "@/components/Spinner";
 export default function DashboardView() {
   const { data: user, isLoading: authLoading } = useAuth();
   const { data, isLoading } = useQuery({
@@ -15,7 +16,7 @@ export default function DashboardView() {
   });
   const navigate = useNavigate();
 
-  if (isLoading && authLoading) return "cargando...";
+  if (isLoading && authLoading) return <Spinner />;
   if (data && user)
     return (
       <>
